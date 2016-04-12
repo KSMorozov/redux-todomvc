@@ -1,0 +1,38 @@
+{
+  "name": "redux-todomvc",
+  "version": "1.0.0",
+  "description": "following react-redux-immutable tutorial http://www.theodo.fr/blog/2016/03/getting-started-with-react-redux-and-immutable-a-test-driven-tutorial-part-1/",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint .",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'test/**/*.@(js|jsx)'",
+    "test:watch": "npm run test -- --watch --watch-extensions jsx"
+  },
+  "author": "https://www.github.com/KSMorozov",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-eslint": "^6.0.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-immutable": "^1.5.4",
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0",
+    "express": "^4.13.4",
+    "jsdom": "^8.3.1",
+    "mocha": "^2.4.5",
+    "webpack": "^1.12.15",
+    "webpack-dev-middleware": "^1.6.1"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
