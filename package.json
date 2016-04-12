@@ -28,6 +28,7 @@
     "express": "^4.13.4",
     "jsdom": "^8.3.1",
     "mocha": "^2.4.5",
+    "react-addons-test-utils": "^15.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.15",
     "webpack-dev-middleware": "^1.6.1"
@@ -36,6 +37,7 @@
     "immutable": "^3.7.6",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "recompose": "^0.17.0",
     "todomvc-app-css": "^2.0.4"
   }
 }

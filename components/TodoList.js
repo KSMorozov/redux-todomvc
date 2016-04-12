@@ -1,23 +1,26 @@
 import React, { PropTypes } from 'react';
+import { pure } from 'recompose';
 import Todo from './Todo';
 
-const TodoList = ({ todos }) =>
-  <ul className="todo-list">
-    {
-      todos.map((todo) =>
-        <Todo
-          editing={todo.get('editing')}
-          status={todo.get('status')}
-          text={todo.get('text')}
-          id={todo.get('id')}
-          key={todo.get('text')}
-        />
-      )
-    }
-  </ul>;
+const TodoList = ({ todos, filter }) => {
+  const filteredTodos = todos.filter((t) => filter === 'all' || t.get('status') === filter);
+  return (
+    <ul className="todo-list">
+      {
+        filteredTodos.map((todo) =>
+          <Todo
+            text={todo.get('text')}
+            key={todo.get('text')}
+          />
+        )
+      }
+    </ul>
+  );
+};
 
 TodoList.propTypes = {
   todos: PropTypes.object.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
-export default TodoList;
+export default pure(TodoList);

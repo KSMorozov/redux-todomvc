@@ -1,24 +1,24 @@
 import React, { PropTypes } from 'react';
+import { pure } from 'recompose';
+import TextInput from './TextInput';
 
-const Todo = ({ editing, status, text, id }) =>
-  <li className="active">
+const Todo = ({ text }) =>
+  <li className="todo">
     <div className="view">
       <input type="checkbox" className="toggle" />
       <label htmlFor="todo">
         {`${text} `}
-        {`${status} `}
-        {`${editing} `}
-        {`${id}`}
       </label>
-      <button style={{ marginLeft: '10px' }} className="destroy"></button>
+      <button className="destroy"></button>
     </div>
+    <TextInput />
   </li>;
 
 Todo.propTypes = {
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  editing: PropTypes.bool.isRequired,
+  // status: PropTypes.string.isRequired,
+  // editing: PropTypes.bool.isRequired,
 };
 
-export default Todo;
+export default pure(Todo);

@@ -10,4 +10,6 @@ const todos = List.of(
   Map({ id: 3, text: 'Immutable', status: 'completed', editing: false }),
 );
 
-ReactDOM.render(<App todos={todos} />, document.getElementById('root'));
+const filter = 'all';
+
+ReactDOM.render(<App todos={todos} filter={filter} />, document.getElementById('root'));
