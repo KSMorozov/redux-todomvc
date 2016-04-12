@@ -11,6 +11,8 @@ const TodoList = ({ todos, filter }) => {
           <Todo
             text={todo.get('text')}
             key={todo.get('text')}
+            completed={todo.get('status') === 'completed' || false}
+            editing={todo.get('editing')}
           />
         )
       }

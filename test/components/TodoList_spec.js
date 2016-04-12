@@ -3,8 +3,8 @@ import { List, Map } from 'immutable';
 import { expect } from 'chai';
 import TodoList from '../../components/TodoList.js';
 import {
-  renderIntoDocument,
   scryRenderedDOMComponentsWithTag,
+  renderIntoDocument,
 } from 'react-addons-test-utils';
 
 describe('TodoList', () => {

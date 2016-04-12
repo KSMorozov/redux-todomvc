@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import { pure } from 'recompose';
 import TextInput from './TextInput';
 
-const Todo = ({ text }) =>
-  <li className="todo">
+const Todo = ({ text, completed, editing }) =>
+  <li className={`todo ${completed && 'completed'} ${editing && 'editing'}`}>
     <div className="view">
-      <input type="checkbox" className="toggle" />
+      <input type="checkbox" defaultChecked={completed} className="toggle" />
       <label htmlFor="todo">
         {`${text} `}
       </label>
@@ -17,7 +17,8 @@ const Todo = ({ text }) =>
 Todo.propTypes = {
   // id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
-  // status: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+  editing: PropTypes.bool.isRequired,
   // editing: PropTypes.bool.isRequired,
 };
 
