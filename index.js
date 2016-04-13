@@ -1,41 +1,31 @@
 /* eslint no-use-before-define: 0 */
+// import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { List, Map } from 'immutable';
-import App from './components/App';
+// import { List, Map } from 'immutable';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers/reducer';
+import App from './containers/App';
 require('./node_modules/todomvc-app-css/index.css');
 
-let todos = List.of(
-  Map({ id: 1, text: 'React', status: 'active', editing: false }),
-  Map({ id: 2, text: 'Redux', status: 'active', editing: false }),
-  Map({ id: 3, text: 'Immutable', status: 'completed', editing: false }),
+const store = createStore(reducer);
+
+store.dispatch({
+  type: 'SET_STATE',
+  state: {
+    todos: [
+      { id: 1, text: 'React', status: 'active', editing: false },
+      { id: 2, text: 'Redux', status: 'active', editing: false },
+      { id: 3, text: 'Immutable', status: 'active', editing: false },
+    ],
+    filter: 'all',
+  },
+});
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 );
-
-const filter = 'all';
-
-const handleToggleTodo = (id) => {
-  todos = todos.update(
-    todos.findIndex((t) => t.get('id') === id),
-    (t) => t.set('status', (t.get('status') === 'active' ? 'completed' : 'active'))
-  );
-  render();
-};
-
-const handleDeleteTodo = (id) => {
-  todos = todos.filter((t) => t.get('id') !== id);
-  render();
-};
-
-const render = () => {
-  ReactDOM.render(
-    <App
-      todos={todos}
-      filter={filter}
-      handleDeleteTodo={handleDeleteTodo}
-      handleToggleTodo={handleToggleTodo}
-    />,
-    document.getElementById('root')
-  );
-};
-
-render();

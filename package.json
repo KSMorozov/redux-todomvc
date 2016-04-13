@@ -37,7 +37,9 @@
     "immutable": "^3.7.6",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-redux": "^4.4.4",
     "recompose": "^0.17.0",
+    "redux": "^3.4.0",
     "todomvc-app-css": "^2.0.4"
   }
 }
