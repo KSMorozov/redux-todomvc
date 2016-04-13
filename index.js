@@ -2,14 +2,19 @@
 // import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { List, Map } from 'immutable';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers/reducer';
 import App from './containers/App';
 require('./node_modules/todomvc-app-css/index.css');
 
-const store = createStore(reducer);
+const createStoreDevTools = compose(
+  window.devToolsExtension
+  ? window.devToolsExtension()
+  : (f) => f
+)(createStore);
+
+const store = createStoreDevTools(reducer);
 
 store.dispatch({
   type: 'SET_STATE',
